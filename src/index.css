@@ -1,0 +1,5 @@
+/* stylelint-disable at-rule-no-unknown */
+/* Tailwind directives — processed by PostCSS + Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
