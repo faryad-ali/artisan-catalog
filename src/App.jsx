@@ -398,12 +398,15 @@ function AdminDashboard({ products, inquiries, onAddProduct, onDeleteProduct }) 
             <form onSubmit={(e) => {
               e.preventDefault();
               const formData = new FormData(e.target);
+              // UPDATED LOGIC: Uses the typed filename or a default placeholder
+              const imageFile = formData.get('image');
               onAddProduct({
                 name: formData.get('name'),
                 category: formData.get('category'),
                 price: Number(formData.get('price')),
                 description: formData.get('description'),
-                image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=500'
+                // If they typed "bowl.jpg", use it. If empty, use the placeholder.
+                image: imageFile ? `/${imageFile}` : 'https://via.placeholder.com/400x300?text=No+Image'
               });
               setIsAddOpen(false);
             }} className="space-y-4">
@@ -412,6 +415,10 @@ function AdminDashboard({ products, inquiries, onAddProduct, onDeleteProduct }) 
                 <input required name="category" placeholder="Category" className="w-full p-2 border rounded-lg" />
                 <input required name="price" type="number" placeholder="Price" className="w-full p-2 border rounded-lg" />
               </div>
+              {/* NEW INPUT FIELD FOR IMAGE */}
+              <input name="image" placeholder="Image Filename (e.g. bowl.jpg)" className="w-full p-2 border rounded-lg" />
+              <p className="text-xs text-stone-500">Paste your image in the "public" folder first.</p>
+              
               <textarea required name="description" placeholder="Description" className="w-full p-2 border rounded-lg" rows="3"></textarea>
               <div className="flex gap-2">
                 <button type="button" onClick={() => setIsAddOpen(false)} className="flex-1 bg-stone-200 py-3 rounded-lg font-bold">Cancel</button>
