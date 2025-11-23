@@ -406,7 +406,7 @@ function AdminDashboard({ products, inquiries, onAddProduct, onDeleteProduct }) 
                 price: Number(formData.get('price')),
                 description: formData.get('description'),
                 // If they typed "bowl.jpg", use it. If empty, use the placeholder.
-                image: imageFile ? `/${imageFile}` : 'https://via.placeholder.com/400x300?text=No+Image'
+                image: imageFile ? `/${imageFile}` : 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=500'
               });
               setIsAddOpen(false);
             }} className="space-y-4">
