@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Mail, Plus, Trash2, Lock, User, Search, Menu, X, ChevronRight, Package, Loader2 } from 'lucide-react';
+import { ShoppingBag, Mail, Plus, Trash2, Lock, User, Search, Menu, X, ChevronRight, Package, Loader2, Hammer } from 'lucide-react';
 import { supabase } from './supabase';
 
 export default function App() {
@@ -105,9 +105,9 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('home')}>
             <div className="bg-orange-600 text-white p-1.5 rounded">
-              <Package size={24} />
+              <Hammer size={24} />
             </div>
-            <h1 className="text-xl font-bold tracking-tight text-stone-900">Artisan<span className="text-orange-600">Connect</span></h1>
+            <h1 className="text-xl font-bold tracking-tight text-stone-900">Dastkar<span className="text-orange-600">Digital</span></h1>
           </div>
           
           <div className="hidden md:flex items-center gap-6 font-medium text-sm">
