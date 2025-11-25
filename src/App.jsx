@@ -132,7 +132,18 @@ export default function App() {
             {view === 'home' && <HomeView navigate={navigate} products={products} />}
             {view === 'catalog' && <CatalogView products={products} onSubmitInquiry={addInquiry} />}
             {view === 'admin-login' && <AdminLogin onLogin={() => { setIsAdmin(true); navigate('admin-dashboard'); }} />}
-            {view === 'admin-dashboard' && <AdminDashboard products={products} inquiries={inquiries} onAddProduct={addProduct} onDeleteProduct={deleteProduct} />}
+            {view === 'admin-dashboard' && <AdminDashboard
+              products={products}
+              inquiries={inquiries}
+              onAddProduct={addProduct}
+              onDeleteProduct={deleteProduct}
+              // New: Pass the logout logic
+              onLogout={() => {
+                setIsAdmin(false);
+                setView('home');
+                alert("Logged out successfully")
+              }}
+            />}
           </>
         )}
       </main>
@@ -334,7 +345,7 @@ function AdminLogin({ onLogin }) {
   );
 }
 
-function AdminDashboard({ products, inquiries, onAddProduct, onDeleteProduct }) {
+function AdminDashboard({ products, inquiries, onAddProduct, onDeleteProduct, onLogout }) {
   const [tab, setTab] = useState('products');
   const [isAddOpen, setIsAddOpen] = useState(false);
 
@@ -342,9 +353,17 @@ function AdminDashboard({ products, inquiries, onAddProduct, onDeleteProduct }) 
     <div className="max-w-6xl mx-auto py-8 px-4">
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-2xl font-bold">Dashboard</h2>
-        <div className="flex bg-stone-200 p-1 rounded-lg">
+
+        {/* NEW: Logout Button added to the top right */}
+        <div className='flex items-center gap-4'>
+          <button onClick={onLogout} className='text-red-600 hover:text-red-800 text-sm font-bold underline'>
+            Logout
+          </button>
+
+          <div className="flex bg-stone-200 p-1 rounded-lg">
           <button onClick={() => setTab('products')} className={`px-4 py-2 rounded-md text-sm font-medium transition ${tab === 'products' ? 'bg-white shadow text-stone-900' : 'text-stone-600'}`}>Products</button>
           <button onClick={() => setTab('inquiries')} className={`px-4 py-2 rounded-md text-sm font-medium transition ${tab === 'inquiries' ? 'bg-white shadow text-stone-900' : 'text-stone-600'}`}>Inquiries</button>
+          </div>
         </div>
       </div>
 
