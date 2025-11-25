@@ -317,7 +317,7 @@ function AdminLogin({ onLogin }) {
     if (pass === 'admin123') {
       onLogin();
     } else {
-      setError('Invalid Password (Hint: admin123)');
+      setError('Invalid Password (Hint: admin)');
     }
   };
 
