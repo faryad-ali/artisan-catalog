@@ -328,7 +328,7 @@ function AdminLogin({ onLogin }) {
           {error && <p className="text-red-500 text-sm">{error}</p>}
           <button className="w-full bg-stone-900 text-white py-3 rounded-lg font-bold">Access Dashboard</button>
         </form>
-        <p className="text-xs text-stone-400 mt-4">Demo Password: admin123</p>
+        {/* <p className="text-xs text-stone-400 mt-4">Demo Password: admin123</p> */}
       </div>
     </div>
   );
