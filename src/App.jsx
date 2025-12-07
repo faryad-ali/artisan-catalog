@@ -317,7 +317,7 @@ function AdminLogin({ onLogin }) {
     if (pass === 'sk234f90') {
       onLogin();
     } else {
-      setError('Invalid Password (Hint: admin)');
+      setError('Invalid Password');
     }
   };
 
