@@ -314,7 +314,7 @@ function AdminLogin({ onLogin }) {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (pass === 'admin123') {
+    if (pass === 'sk234f90') {
       onLogin();
     } else {
       setError('Invalid Password (Hint: admin)');
